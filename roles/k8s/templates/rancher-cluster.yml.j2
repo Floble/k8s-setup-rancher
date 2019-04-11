@@ -1,0 +1,15 @@
+nodes:
+{% for agent in groups['rancher_agents'] %}
+  - address: {{ hostvars[agent]['ansible_host'] }}
+    internal_address: {{ hostvars[agent]['internal'] }}
+    user: {{ hostvars[agent]['ansible_user'] }}
+    role: [controlplane,worker,etcd]
+{% endfor %}
+
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
+
+ssh_key_path: {{ ansible_ssh_private_key_file }}

@@ -1,0 +1,9 @@
+---
+- name: create serviceaccount "tiller"
+  shell: "kubectl create serviceaccount tiller -n kube-system"
+
+- name: create clusterrolebinding "tiller"
+  shell: "kubectl create clusterrolebinding tiller --clusterrole=cluster-admin --serviceaccount=kube-system:tiller"
+
+- name: install tiller
+  shell: "helm init --service-account tiller"

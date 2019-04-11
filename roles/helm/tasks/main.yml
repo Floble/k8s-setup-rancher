@@ -1,0 +1,14 @@
+---
+- name: download helm binary
+  get_url:
+    url: "https://storage.googleapis.com/kubernetes-helm/{{ helm_version }}-{{ helm_platform }}.tar.gz"
+    dest: "/tmp/{{ helm_version }}-{{ helm_platform }}.tar.gz"
+
+- name: unzip helm archive
+  unarchive:
+    src: "/tmp/{{ helm_version }}-{{ helm_platform }}.tar.gz"
+    dest: "/tmp/"
+
+- name: copy helm binary to user directory
+  become: yes
+  shell: "mv /tmp/{{ helm_platform }}/helm /usr/local/bin/helm"

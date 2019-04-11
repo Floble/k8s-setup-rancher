@@ -5,3 +5,7 @@
     name: docker.io
     state: latest
     update_cache: true
+
+- name: add user "ubuntu" to docker group
+  become: yes
+  shell: "usermod -aG docker ubuntu"

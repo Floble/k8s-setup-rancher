@@ -1,0 +1,25 @@
+---
+- name: init helm on the client machine
+  become: yes
+  shell: "helm init --client-only"
+
+- name: add the helm chart repository
+  become: yes
+  shell: "helm repo add rancher-stable https://releases.rancher.com/server-charts/stable"
+
+- name: copy the bash script
+  template:
+    src: install_rancher.sh.j2
+    dest: install_rancher.sh
+    mode: +x
+
+- pause:
+    minutes: 2
+
+- name: execute the bash script
+  shell: ./install_rancher.sh
+
+- name: cleanup
+  file:
+    path: "install_rancher.sh"
+    state: absent

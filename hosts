@@ -1,9 +1,9 @@
-[rancher_servers]
-server1 ansible_host=<ip> ansible_user=<user>
-
 [rancher_agents]
-agent1 ansible_host=<ip> ansible_user=<user>
+agent1 ansible_host= internal= ansible_user=
+agent2 ansible_host= internal= ansible_user=
+agent3 ansible_host= internal= ansible_user=
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
-ansible_ssh_private_key_file=<path>
+ansible_ssh_private_key_file=
+hostname=

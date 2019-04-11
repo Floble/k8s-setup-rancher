@@ -3,6 +3,10 @@
   roles:
     - docker
 
-- hosts: rancher_servers
+- hosts: localhost
   roles:
-    - rancher-server
+    - kubectl
+    - k8s
+    - helm
+    - tiller
+    - rancher

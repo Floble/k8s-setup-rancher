@@ -1,0 +1,18 @@
+---
+- name: run rancher server
+  template:
+    src: rancher-cluster.yml.j2
+    dest: rancher-cluster.yml
+
+- name: setup kubernetes cluster
+  shell: "rke up --config {{ item }}"
+  with_items:
+    - "./rancher-cluster.yml"
+
+- name: delete "rancher-cluster.yml"
+  file:
+    path: "rancher-cluster.yml"
+    state: absent
+
+- name: move the credentials for kubectl and helm
+  shell: "mv kube_config_rancher-cluster.yml ~/.kube/config"

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo helm install stable/cert-manager --name cert-manager --namespace kube-system --version v0.5.2
+sleep 1m
+sudo helm install rancher-stable/rancher --name rancher --namespace cattle-system --set hostname={{ hostname }}
