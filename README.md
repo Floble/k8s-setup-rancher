@@ -27,13 +27,13 @@ Ansible playbooks for setting up a k8s cluster with Rancher in high availability
 ### Prepare the inventory
 Set the **values** for the **variables** in the **inventory** files **hosts**.
 
-| Variable                       | Description                                        |
-| -------------------------------|:---------------------------------------------------|
-| <ansible_host>                 | The public ip address of the node                  |
-| <internal>                     | The private ip address of the node                 |
-| <ansible_user>                 | The user to be logged in as via SSH                |
-| <ansible_ssh_private_key_file> | The directory where your private SSH key is placed |
-| <hostname>                     | The public DNS record for the kubernetes cluster   |
+| Variable                       | Description                                      |
+| -------------------------------|:-------------------------------------------------|
+| ansible_host                 | The public ip address of the node                  |
+| internal                     | The private ip address of the node                 |
+| ansible_user                 | The user to be logged in as via SSH                |
+| ansible_ssh_private_key_file | The directory where your private SSH key is placed |
+| hostname                     | The public DNS record for the kubernetes cluster   |
 
 ### Run the playbooks
 Run the playbooks from the directory where they are placed.
