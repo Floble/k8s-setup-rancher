@@ -1,10 +1,8 @@
 ---
 - name: init helm on the client machine
-  become: yes
   shell: "helm init --client-only"
 
 - name: add the helm chart repository
-  become: yes
   shell: "helm repo add rancher-stable https://releases.rancher.com/server-charts/stable"
 
 - name: copy the bash script

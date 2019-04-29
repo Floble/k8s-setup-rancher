@@ -1,0 +1,7 @@
+---
+- name: download and install rke binary
+  become: yes
+  get_url:
+    url: "https://github.com/rancher/rke/releases/download/{{ rke_version }}/{{ rke_platform }}"
+    dest: "/usr/local/bin/rke"
+    mode: +x

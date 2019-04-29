@@ -3,9 +3,14 @@
   roles:
     - docker
 
-- hosts: localhost
+- hosts: rancher_ingress
+  roles:
+    - nginx
+
+- hosts: kubernetes_management
   roles:
     - kubectl
+    - rke
     - k8s
     - helm
     - tiller

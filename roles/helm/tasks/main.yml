@@ -8,6 +8,7 @@
   unarchive:
     src: "/tmp/{{ helm_version }}-{{ helm_platform }}.tar.gz"
     dest: "/tmp/"
+    remote_src: yes
 
 - name: copy helm binary to user directory
   become: yes

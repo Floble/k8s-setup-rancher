@@ -15,4 +15,5 @@
     state: absent
 
 - name: move the credentials for kubectl and helm
-  shell: "mv kube_config_rancher-cluster.yml ~/.kube/config"
+  become: yes
+  shell: "mv kube_config_rancher-cluster.yml /home/ubuntu/.kube/config"

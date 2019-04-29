@@ -1,9 +1,16 @@
-[rancher_agents]
-agent1 ansible_host= internal= ansible_user=
-agent2 ansible_host= internal= ansible_user=
-agent3 ansible_host= internal= ansible_user=
+[rancher_server]
+r_server1 ansible_host= internal= ansible_user=
+r_server2 ansible_host= internal= ansible_user=
+r_server3 ansible_host= internal= ansible_user=
+
+[rancher_ingress]
+r_lb1 ansible_host= internal= ansible_user=
+
+[kubernetes_management]
+k_mgmt1 ansible_host= internal= ansible_user=
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_ssh_private_key_file=
+ansible_ssh_common_args=' -o ProxyCommand="ssh -i <path> -W %h:%p ubuntu@<gateway>"'
 hostname=

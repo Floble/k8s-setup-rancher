@@ -1,5 +1,5 @@
 nodes:
-{% for agent in groups['rancher_agents'] %}
+{% for agent in groups['rancher_server'] %}
   - address: {{ hostvars[agent]['ansible_host'] }}
     internal_address: {{ hostvars[agent]['internal'] }}
     user: {{ hostvars[agent]['ansible_user'] }}
