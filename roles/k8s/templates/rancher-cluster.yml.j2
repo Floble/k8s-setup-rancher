@@ -5,6 +5,12 @@ nodes:
     user: {{ hostvars[agent]['ansible_user'] }}
     role: [controlplane,worker,etcd]
 {% endfor %}
+{% for worker in groups['workers'] %}
+  - address: {{ hostvars[worker]['ansible_host'] }}
+    internal_address: {{ hostvars[worker]['internal'] }}
+    user: {{ hostvars[worker]['ansible_user'] }}
+    role: [worker]
+{% endfor %}
 
 services:
   etcd:
