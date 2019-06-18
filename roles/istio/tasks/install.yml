@@ -1,0 +1,4 @@
+---
+- name: install the istio-init chart
+
+helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system

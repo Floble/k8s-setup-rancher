@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo helm install /tmp/istio-{{ istio_version }}/install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
+sleep 1m
+sudo helm install /tmp/istio-{{ istio_version }}/install/kubernetes/helm/istio --name istio --namespace istio-system --set global.mtls.enabled=true
